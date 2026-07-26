@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import joblib
+import os
 from xgboost import XGBRegressor
 model=XGBRegressor()
 model.load_model("diamond_price_model.json")
@@ -61,4 +62,5 @@ def predict():
 
     return render_template("result.html", prediction=round(pred,2))
 if __name__=="__main__":
-     app.run(debug=True)
+    port = int(os.environment.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)

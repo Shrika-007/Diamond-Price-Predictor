@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>💎 Diamond Price Predictor 💎</h1>
+        <h2>Estimate the market value of your diamond</h2>
+        <p>Enter the Diamond details below</p>
+        <form action="/predict" method="POST">
+        <label>Carat</label>
+        <input type="number" step="0.01" name="carat" required>
+
+        <label>Cut</label>
+        <select name="cut">
+            <option>Fair</option>
+            <option>Good</option>
+            <option>Very Good</option>
+            <option>Premium</option>
+            <option>Ideal</option>
+        </select>
+
+        <label>Color</label>
+        <select name="color">
+            <option>J</option>
+            <option>I</option>
+            <option>H</option>
+            <option>G</option>
+            <option>F</option>
+            <option>E</option>
+            <option>D</option>
+        </select>
+
+        <label>Clarity</label>
+        <select name="clarity">
+            <option>I1</option>
+            <option>SI2</option>
+            <option>SI1</option>
+            <option>VS2</option>
+            <option>VS1</option>
+            <option>VVS2</option>
+            <option>VVS1</option>
+            <option>IF</option>
+        </select>
+
+        <label>Depth</label>
+        <input type="number" step="0.1" name="depth" required>
+
+        <label>Table</label>
+        <input type="number" step="0.1" name="table" required>
+
+        <label>Dimensions</label>
+
+        <div class="dimension-group">
+            <div>
+                <label>X</label>
+                <input type="number" step="0.01" name="x" required>
+            </div>
+
+            <div>
+                <label>Y</label>
+                <input type="number" step="0.01" name="y" required>
+            </div>
+
+            <div>
+                <label>Z</label>
+                <input type="number" step="0.01" name="z" required>
+            </div>
+
+        </div>
+
+        <div class="btn_cont">
+            <button type="submit">Predict Price</button>
+        </div>
+        </form>
+    </div>
+    <script src="{{url_for('static', filename="script.js")}}"></script>
+</body>
+</html>
